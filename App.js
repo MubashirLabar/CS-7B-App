@@ -1,18 +1,39 @@
-import { View, Text, StyleSheet, StatusBar, ScrollView } from "react-native";
+import { View, StyleSheet, Image, ScrollView, Dimensions } from "react-native";
+
+// const width = Dimensions.get("window").width;
+// const height = Dimensions.get("window").height;
+
+const { width, height } = Dimensions.get("window");
 
 function App() {
   return (
-    <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+    <ScrollView>
       <View style={styles.container}>
-        <View style={[styles.box, { backgroundColor: "green" }]}>
-          <Text style={styles.title}>Pizza</Text>
-        </View>
-        <View style={[styles.box, { backgroundColor: "red" }]}>
-          <Text style={styles.title}>Burger</Text>
-        </View>
-        <View style={[styles.box, { backgroundColor: "pink" }]}>
-          <Text style={styles.title}>Pasta</Text>
-        </View>
+        <Image source={require("./images/img-1.jpg")} style={styles.image} />
+        <Image
+          source={{
+            uri: "https://images.pexels.com/photos/33704713/pexels-photo-33704713.jpeg",
+          }}
+          style={styles.image}
+        />
+        <Image
+          source={{
+            uri: "https://images.pexels.com/photos/34364458/pexels-photo-34364458.jpeg",
+          }}
+          style={styles.image}
+        />
+        <Image
+          source={{
+            uri: "https://images.pexels.com/photos/34282035/pexels-photo-34282035.jpeg",
+          }}
+          style={styles.image}
+        />
+        <Image
+          source={{
+            uri: "https://images.pexels.com/photos/18803917/pexels-photo-18803917.jpeg",
+          }}
+          style={styles.image}
+        />
       </View>
     </ScrollView>
   );
@@ -23,22 +44,10 @@ export default App;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "row",
-    gap: 20,
-    paddingVertical: 80,
-    paddingHorizontal: 20,
+    flexDirection: "column",
   },
-  box: {
-    width: 200,
-    height: 250,
-    borderRadius: 25,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#000",
-  },
-  title: {
-    fontSize: 40,
-    fontWeight: "bold",
-    color: "white",
+  image: {
+    height: height,
+    width: width,
   },
 });
