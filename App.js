@@ -1,41 +1,30 @@
-import { View, StyleSheet, Image, ScrollView, Dimensions } from "react-native";
-
-// const width = Dimensions.get("window").width;
-// const height = Dimensions.get("window").height;
-
-const { width, height } = Dimensions.get("window");
+import { useState } from "react";
+import { View, StyleSheet, TextInput } from "react-native";
 
 function App() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        <Image source={require("./images/img-1.jpg")} style={styles.image} />
-        <Image
-          source={{
-            uri: "https://images.pexels.com/photos/33704713/pexels-photo-33704713.jpeg",
-          }}
-          style={styles.image}
-        />
-        <Image
-          source={{
-            uri: "https://images.pexels.com/photos/34364458/pexels-photo-34364458.jpeg",
-          }}
-          style={styles.image}
-        />
-        <Image
-          source={{
-            uri: "https://images.pexels.com/photos/34282035/pexels-photo-34282035.jpeg",
-          }}
-          style={styles.image}
-        />
-        <Image
-          source={{
-            uri: "https://images.pexels.com/photos/18803917/pexels-photo-18803917.jpeg",
-          }}
-          style={styles.image}
-        />
-      </View>
-    </ScrollView>
+    <View style={styles.container}>
+      <TextInput
+        placeholder="Enter username"
+        style={styles.input}
+        value={username}
+        onChangeText={(value) => {
+          setUsername(value);
+        }}
+      />
+      <TextInput
+        placeholder="Enter password"
+        style={styles.input}
+        secureTextEntry={true}
+        value={password}
+        onChangeText={(value) => {
+          setPassword(value);
+        }}
+      />
+    </View>
   );
 }
 
@@ -44,10 +33,18 @@ export default App;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "column",
+    paddingVertical: 60,
+    paddingHorizontal: 24,
+    justifyContent: "center",
+    alignItems: "center",
   },
-  image: {
-    height: height,
-    width: width,
+  input: {
+    borderWidth: 2,
+    paddingHorizontal: 20,
+    height: 58,
+    width: "100%",
+    fontSize: 20,
+    borderRadius: 18,
+    marginBottom: 24,
   },
 });
