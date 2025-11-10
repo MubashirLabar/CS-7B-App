@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { View, StyleSheet, TextInput } from "react-native";
 
+// My App Component
 function App() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
