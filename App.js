@@ -3,8 +3,11 @@ import { View, StyleSheet, TextInput } from "react-native";
 
 // My App Component
 function App() {
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState("BSCS 7th B");
   const [password, setPassword] = useState("");
+
+  console.log("username...", username);
+  console.log("password...", password);
 
   return (
     <View style={styles.container}>
